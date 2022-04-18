@@ -1,0 +1,154 @@
+---
+title: "Praca domowa numer 2"
+author: "Jan Skwarek"
+date: "5/14/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+source("Skwarek_Jan_305734_pd2.R")
+```
+
+## Kilka słów wstępu
+
+Poniższy raport porównuje złożoność czasową czterech programów wykonujących
+to samo, ale zaimplementowanych kolejno: referencyjnie przy użyciu pakietu
+sqldf, bazowo - korzystając tylko z funkcji bazowych, przy użyciu pakietu
+dplyr oraz przy użyciu pakietu data.table. Wszystkie funkcje, do których
+odwoływać się będzie ten raport zawarte są w pliku 'Skwarek_Jan_305734_pd2.R'.
+Zawarte są w nim również szczegółowe opisy działania poszczególnych funkcji.
+
+## ZADANIE 1
+
+Najpierw upewnijmy się czy otrzymane wyniki są tożsame.
+
+```{r identity_exc1}
+sqldf <- df_sql_1(Tags)
+base <- df_base_1(Tags)
+dplyr <- df_dplyr_1(Tags)
+data.table <- df_table_1(Tags)
+dplyr::all_equal(sqldf, base)
+dplyr::all_equal(sqldf, dplyr)
+dplyr::all_equal(sqldf, data.table)
+```
+
+Teraz możemy już przejść do sprawdzenia złożoności czasowej poszczególnych 
+funkcji:
+
+```{r microbenchmark_exc1}
+microbenchmark::microbenchmark(
+  sqldf = df_sql_1(Tags),
+  base = df_base_1(Tags),
+  dplyr = df_dplyr_1(Tags),
+  data.table = df_table_1(Tags)
+)
+```
+
+## ZADANIE 2
+
+Najpierw upewnijmy się czy otrzymane wyniki są tożsame.
+
+```{r error=TRUE}
+sqldf <- df_sql_2()
+base <- df_base_2()
+dplyr <- df_dplyr_2()
+data.table <- df_table_2()
+dplyr::all_equal(sqldf, base)
+dplyr::all_equal(sqldf, dplyr)
+dplyr::all_equal(sqldf, data.table)
+```
+
+Teraz możemy już przejść do sprawdzenia złożoności czasowej poszczególnych 
+funkcji:
+
+```{r error=TRUE}
+microbenchmark::microbenchmark(
+  sqldf = df_sql_2(),
+  base = df_base_2(),
+  dplyr = df_dplyr_2(),
+  data.table = df_table_2()
+)
+```
+
+## ZADANIE 3
+
+Najpierw upewnijmy się czy otrzymane wyniki są tożsame.
+
+```{r error=TRUE}
+sqldf <- df_sql_3()
+base <- df_base_3()
+dplyr <- df_dplyr_3()
+data.table <- df_table_3()
+dplyr::all_equal(sqldf, base)
+dplyr::all_equal(sqldf, dplyr)
+dplyr::all_equal(sqldf, data.table)
+```
+
+Teraz możemy już przejść do sprawdzenia złożoności czasowej poszczególnych 
+funkcji:
+
+```{r error=TRUE}
+microbenchmark::microbenchmark(
+  sqldf = df_sql_3(),
+  base = df_base_3(),
+  dplyr = df_dplyr_3(),
+  data.table = df_table_3()
+)
+```
+
+## ZADANIE 4
+
+Najpierw upewnijmy się czy otrzymane wyniki są tożsame.
+
+```{r error=TRUE}
+sqldf <- df_sql_4()
+base <- df_base_4()
+dplyr <- df_dplyr_4()
+data.table <- df_table_4()
+dplyr::all_equal(sqldf, base)
+dplyr::all_equal(sqldf, dplyr)
+dplyr::all_equal(sqldf, data.table)
+```
+
+Teraz możemy już przejść do sprawdzenia złożoności czasowej poszczególnych 
+funkcji:
+
+```{r error=TRUE}
+microbenchmark::microbenchmark(
+  sqldf = df_sql_4(),
+  base = df_base_4(),
+  dplyr = df_dplyr_4(),
+  data.table = df_table_4()
+)
+```
+
+## ZADANIE 5
+
+Najpierw upewnijmy się czy otrzymane wyniki są tożsame.
+
+```{r error=TRUE}
+sqldf <- df_sql_5()
+base <- df_base_5()
+dplyr <- df_dplyr_5()
+data.table <- df_table_5()
+dplyr::all_equal(sqldf, base)
+dplyr::all_equal(sqldf, dplyr)
+dplyr::all_equal(sqldf, data.table)
+```
+
+Teraz możemy już przejść do sprawdzenia złożoności czasowej poszczególnych 
+funkcji:
+
+```{r error=TRUE}
+microbenchmark::microbenchmark(
+  sqldf = df_sql_5(),
+  base = df_base_5(),
+  dplyr = df_dplyr_5(),
+  data.table = df_table_5()
+)
+```
+
+## Wnioski
+
+()
